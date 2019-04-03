@@ -2,9 +2,12 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
+const mongoose = require('mongoose');
 
 const productRoutes = require('./api/routes/products');
 const orderRoutes = require('./api/routes/orders');
+
+mongoose.connect('mongodb://localhost/node-shop');
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: false}));
